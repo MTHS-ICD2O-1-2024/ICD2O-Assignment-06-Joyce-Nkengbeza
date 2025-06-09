@@ -17,12 +17,12 @@ if (navigator.serviceWorker) {
 }
 
 /**
- * This function gets a random Attack on Titan quote.
+ * This function gets a random Peaky Blinders quote.
  */
 async function getQuote() {
   try {
     const resultJSON = await fetch(
-      "https://animechan.xyz/api/random/anime?title=attack-on-titan"
+      "https://peaky-blinders-quotes.vercel.app/api/quotes/random"
     )
     const jsonData = await resultJSON.json()
     console.log(jsonData)
