@@ -1,25 +1,38 @@
-// Copyright (c) 2020 Mr. Coxall All rights reserved
+// Copyright (c) 2020 Mr. Coxall
+// All rights reserved
 //
 // Created by: Joyce Nkengbeza
-// Created on: April 2025
+// Created on: June 2025
 // This file contains the JS functions for index.html
 
-'use strict'
+"use strict"
 
-function calculate() {
-  // input
-  const age = (document.getElementById("age").value);
-  const day = document.querySelector('input[name="day"]:checked').value;
+/**
+ * Check service worker.
+ */
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register("/ICD2O-Unit-6-03-Joyce-Nkengbeza/sw.js", {
+    scope: "/ICD2O-Unit-6-03-Joyce-Nkengbeza/",
+  })
+}
 
-  // process
-    if ( day == "tuesday" || day == "thursday" || (age >= 12 && age <=21)) {
+/**
+ * This function gets a random Attack on Titan quote.
+ */
+async function getQuote() {
+  try {
+    const resultJSON = await fetch(
+      "https://animechan.xyz/api/random/anime?title=attack-on-titan"
+    )
+    const jsonData = await resultJSON.json()
+    console.log(jsonData)
+
     // output
-    document.getElementById("results").innerHTML =
-      "<p>You can recieve a student discount.</p>";
-  }
-
-  else {
-    document.getElementById("results").innerHTML =
-      "<p>You have to pay regular price.</p>";
+    document.getElementById("quote").innerHTML = '"' + jsonData.quote + '"'
+    document.getElementById("character").innerHTML = "- " + jsonData.character
+  } catch (error) {
+    console.error(error)
+    document.getElementById("quote").innerHTML = "Could not load quote."
+    document.getElementById("character").innerHTML = error.message
   }
 }
