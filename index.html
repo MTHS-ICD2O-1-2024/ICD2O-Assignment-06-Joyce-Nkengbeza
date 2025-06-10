@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- ICS2O-Unit6-03-HTML-MDL -->
+<!-- ICD2O-Assignment-06-HTML-MDL -->
 <html lang="en-ca">
   <head>
     <meta charset="utf-8" />
@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-status-bar-style" content="black" />
-    <meta name="description" content="Peaky Blinders Quote Generator" />
+    <meta name="description" content="Chinese Radical Info App" />
     <meta name="keywords" content="mths, icd2o" />
     <meta name="author" content="Joyce Nkengbeza" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,14 +37,14 @@
       sizes="16x16"
       href="./favicon-16x16new.png"
     />
-    <title>Peaky Blinders Quote</title>
+    <title>Chinese Radical Info</title>
     <link
       rel="canonical"
-      href="https://joyce.nkengbeza.github.io/ICD2O-Unit-6-03-Joyce-Nkengbeza/"
+      href="https://joyce.nkengbeza.github.io/ICD2O-Assignment-06-Joyce-Nkengbeza/"
     />
     <link
       rel="manifest"
-      href="/ICD2O-Unit-6-03-Joyce-Nkengbeza/manifest.webmanifest"
+      href="/ICD2O-Assignment-06-Joyce-Nkengbeza/manifest.webmanifest"
     />
   </head>
 
@@ -54,32 +54,30 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Peaky Blinders Quote</span>
+          <span class="mdl-layout-title">Chinese Radical Info</span>
         </div>
       </header>
       <main class="mdl-layout__content">
         <div class="left-image">
-          <img src="./images/peakyblinders.png" alt="Peaky Blinders" />
+          <img src="./images/chinese.jpeg" alt="Chinese Radical" />
         </div>
-        <div class="page-content">
-          Click to get a random Peaky Blinders quote
-        </div>
+        <div class="page-content">Click to get info about radical #85</div>
         <br />
         <form>
           <br />
           <!-- Accent-colored raised button with ripple -->
           <button
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onclick="getQuote()"
+            onclick="getRadicalInfo()"
             type="button"
           >
-            Get a Quote
+            Get Radical Info
           </button>
         </form>
         <br />
         <div class="page-content-answer">
-          <div id="quote"></div>
-          <div id="character"></div>
+          <div id="mandarin"></div>
+          <div id="definition"></div>
         </div>
       </main>
     </div>

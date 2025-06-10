@@ -11,28 +11,37 @@
  * Check service worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICD2O-Unit-6-03-Joyce-Nkengbeza/sw.js", {
-    scope: "/ICD2O-Unit-6-03-Joyce-Nkengbeza/",
-  })
+  navigator.serviceWorker.register(
+    "/ICD2O-Assignment-06-Joyce-Nkengbeza/sw.js",
+    {
+      scope: "/ICD2O-Unit-Assignment-06-Joyce-Nkengbeza/",
+    }
+  )
 }
 
 /**
- * This function gets a random Peaky Blinders quote.
+ * This function gets a Chinese radical's definition and pronunciation.
  */
-async function getQuote() {
+async function getRadicalInfo() {
   try {
-    const resultJSON = await fetch(
-      "https://peaky-blinders-quotes.vercel.app/api/quotes/random"
-    )
+    // Use a CORS proxy so the browser can fetch the HTTP API safely
+    const proxyURL = "https://corsproxy.io/?"
+    const apiURL =
+      "http://ccdb.hemiola.com/characters/radicals/85?filter=gb&fields=kDefinition,kMandarin"
+
+    const resultJSON = await fetch(proxyURL + encodeURIComponent(apiURL))
     const jsonData = await resultJSON.json()
     console.log(jsonData)
 
-    // output
-    document.getElementById("quote").innerHTML = '"' + jsonData.quote + '"'
-    document.getElementById("character").innerHTML = "- " + jsonData.character
+    // Output the definition and Mandarin pronunciation of the first result
+    const radical = jsonData[0]
+    document.getElementById("mandarin").innerHTML =
+      "Mandarin Pronounciation: " + radical.kMandarin
+    document.getElementById("definition").innerHTML =
+      "Definition: " + radical.kDefinition
   } catch (error) {
     console.error(error)
-    document.getElementById("quote").innerHTML = "Could not load quote."
-    document.getElementById("character").innerHTML = error.message
+    document.getElementById("mandarin").innerHTML = "Could not load radical."
+    document.getElementById("definition").innerHTML = error.message
   }
 }
