@@ -27,7 +27,7 @@ async function getRadicalInfo() {
     // Use a CORS proxy so the browser can fetch the HTTP API safely
     const proxyURL = "https://corsproxy.io/?"
     const apiURL =
-      "http://ccdb.hemiola.com/characters/radicals/85?filter=gb&fields=kDefinition,kMandarin"
+      "http://ccdb.hemiola.com/characters/radicals/?filter=gb&fields=kDefinition,kMandarin"
 
     const resultJSON = await fetch(proxyURL + encodeURIComponent(apiURL))
     const jsonData = await resultJSON.json()
