@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-status-bar-style" content="black" />
-    <meta name="description" content="Chinese Radical Info App" />
+    <meta name="description" content="Random Coffee Image API App" />
     <meta name="keywords" content="mths, icd2o" />
     <meta name="author" content="Joyce Nkengbeza" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,47 +37,32 @@
       sizes="16x16"
       href="./favicon-16x16new.png"
     />
-    <title>Chinese Radical Info</title>
-    <link
-      rel="canonical"
-      href="https://joyce.nkengbeza.github.io/ICD2O-Assignment-06-Joyce-Nkengbeza/"
-    />
-    <link
-      rel="manifest"
-      href="/ICD2O-Assignment-06-Joyce-Nkengbeza/manifest.webmanifest"
-    />
+    <title>Random Coffee Image, API</title>
   </head>
 
   <body>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <script src="./js/script.js"></script>
+    <script defer src="./js/script.js"></script>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Chinese Radical Info</span>
+          <span class="mdl-layout-title">Random Coffee Image, API</span>
         </div>
       </header>
       <main class="mdl-layout__content">
-        <div class="left-image">
-          <img src="./images/chinese.jpeg" alt="Chinese Radical" />
-        </div>
-        <div class="page-content">Click to get info about radicals</div>
         <br />
-        <form>
-          <br />
-          <!-- Accent-colored raised button with ripple -->
+        <!-- Button to Get Coffee Image -->
+        <form action="#" onsubmit="return false;">
           <button
             class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onclick="getRadicalInfo()"
-            type="button"
+            onclick="getCoffeeImage()"
           >
-            Get Radical Info
+            Coffee Image
           </button>
         </form>
         <br />
-        <div class="page-content-answer">
-          <div id="mandarin"></div>
-          <div id="definition"></div>
+        <div class="result">
+          <div id="show-coffee"></div>
         </div>
       </main>
     </div>

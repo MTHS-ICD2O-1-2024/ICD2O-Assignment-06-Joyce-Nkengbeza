@@ -5,43 +5,36 @@
 // Created on: June 2025
 // This file contains the JS functions for index.html
 
+// Copyright (c) 2020 Mr. Coxall
+// All rights reserved
+//
+// Created by: Joyce Nkengbeza
+// Created on: June 2025
+// This file contains the JS functions for index.html
+
 "use strict"
 
 /**
- * Check service worker.
+ * This function gets a random coffee image from the API
+ * The 'async' keyword is used because it will take time from the internet to get data
  */
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register(
-    "/ICD2O-Assignment-06-Joyce-Nkengbeza/sw.js",
-    {
-      scope: "/ICD2O-Unit-Assignment-06-Joyce-Nkengbeza/",
-    }
-  )
-}
-
-/**
- * This function gets a Chinese radical's definition and pronunciation.
- */
-async function getRadicalInfo() {
+/* eslint-disable no-unused-vars */
+async function getCoffeeImage() {
   try {
-    // Use a CORS proxy so the browser can fetch the HTTP API safely
-    const proxyURL = "https://corsproxy.io/?"
-    const apiURL =
-      "http://ccdb.hemiola.com/characters/radicals/?filter=gb&fields=kDefinition,kMandarin"
+    // Use a public CORS proxy to avoid local file restrictions
+    const corsProxy = "https://corsproxy.io/?"
+    const apiUrl = "https://coffee.alexflipnote.dev/random.json"
 
-    const resultJSON = await fetch(proxyURL + encodeURIComponent(apiURL))
-    const jsonData = await resultJSON.json()
-    console.log(jsonData)
+    const response = await fetch(corsProxy + encodeURIComponent(apiUrl))
+    const data = await response.json()
+    console.log(data)
 
-    // Output the definition and Mandarin pronunciation of the first result
-    const radical = jsonData[0]
-    document.getElementById("mandarin").innerHTML =
-      "Mandarin Pronounciation: " + radical.kMandarin
-    document.getElementById("definition").innerHTML =
-      "Definition: " + radical.kDefinition
+    // Output the coffee image to the page
+    document.getElementById("show-coffee").innerHTML =
+      '<b>Here is a random coffee image:</b><br /><img src="' + data.file + '" />'
   } catch (error) {
     console.error(error)
-    document.getElementById("mandarin").innerHTML = "Could not load radical."
-    document.getElementById("definition").innerHTML = error.message
+    document.getElementById("show-coffee").innerHTML =
+      "Could not load coffee image."
   }
 }
